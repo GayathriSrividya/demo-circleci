@@ -9,6 +9,7 @@ jobs:
       - image: "circleci/node:14.18.2-bullseye-browsers-legacy"
     steps:
       - checkout
+      - run: npm install
       - run: npm run start
       - sonarcloud/scan
        
@@ -19,7 +20,6 @@ jobs:
       - image: "circleci/node:14.18.2-bullseye-browsers-legacy"
     steps:
       - checkout
-      - run: sudo apt install node-typescript
       - run: npm run coverage
       - store_artifacts:
           path: coverage/lcov.info
