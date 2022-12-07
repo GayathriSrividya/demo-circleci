@@ -9,7 +9,7 @@ jobs:
       - image: "circleci/node:14.18.2-bullseye-browsers-legacy"
     steps:
       - checkout
-      - run: npm run build
+      - run: npm run start
       - sonarcloud/scan
        
        
@@ -20,8 +20,8 @@ jobs:
     steps:
       - checkout
       - run: npm run coverage
-      - store_artifacts:
-          path: coverage
+      - codecov/upload:
+          file: coverage/lcov.info
 
 workflows:
   api_test:
