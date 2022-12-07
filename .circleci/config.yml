@@ -11,10 +11,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      
- 
-       
-       
+            
   test:
     working_directory: ~/demo-circleci
     docker:
