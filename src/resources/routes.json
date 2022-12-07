@@ -1,0 +1,22 @@
+{
+  "GET_STATUS": {
+    "URL": "/status",
+    "METHOD": "GET",
+    "API_ID": "druid.status"
+  },
+  "HEALTH_CHECK": {
+    "URL": "/status/health",
+    "METHOD": "GET",
+    "API_ID": "druid.health.check"
+  },
+  "NATIVE_QUERY": {
+    "URL": "/druid/v2",
+    "METHOD": "POST",
+    "API_ID": "druid.execute.native.query"
+  },
+  "SQL_QUERY": {
+    "URL": "/druid/v2/sql/",
+    "METHOD": "POST",
+    "API_ID": "druid.execute.sql.query"
+  }
+}
