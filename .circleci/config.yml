@@ -22,7 +22,7 @@ jobs:
       - checkout
       - run: npm run coverage
       - store_artifacts:
-          path: coverage/lcov.info
+          path: coverage
 
 workflows:
   api_test:
