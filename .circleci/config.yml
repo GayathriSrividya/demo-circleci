@@ -20,8 +20,8 @@ jobs:
     steps:
       - checkout
       - run: npm run coverage
-      - codecov/upload:
-          file: coverage/lcov.info
+      - store_artifacts:
+          path: coverage/lcov.info
 
 workflows:
   api_test:
