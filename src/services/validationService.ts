@@ -40,7 +40,7 @@ export class ValidationService {
             ]
           );
         } catch (error) {
-          console.log("enetered invalidquery")
+          console.log("enetered invalidquery");
           return { errorMessage: constants.INVALID_QUERY_TYPE, isValid: false };
         }
       } else {
