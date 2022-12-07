@@ -25,7 +25,7 @@ describe("druid API", () => {
         .get(config.apiHealthEndPoint)
         .end((err, res) => {
           res.should.have.status(httpStatus.INTERNAL_SERVER_ERROR);
-          
+
           done();
         });
     });
