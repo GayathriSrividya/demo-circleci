@@ -19,7 +19,7 @@ jobs:
       - image: "circleci/node:14.18.2-bullseye-browsers-legacy"
     steps:
       - checkout
-      - run: npm install typescript -g
+      - run: sudo apt install node-typescript
       - run: npm run coverage
       - store_artifacts:
           path: coverage/lcov.info
