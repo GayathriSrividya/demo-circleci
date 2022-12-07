@@ -55,7 +55,7 @@ const validate =
   };
 
 const getLimits = (datasource: string): any => {
-  for (var index = 0; index < limits.rules.length; index++) {
+  for (let index = 0; index < limits.rules.length; index++) {
     if (limits.rules[index].dataSource == datasource) {
       return limits.rules[index];
     }
