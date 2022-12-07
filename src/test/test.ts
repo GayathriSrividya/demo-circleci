@@ -245,6 +245,21 @@ describe("druid API", () => {
           done();
         });
     });
+    it("it should reject query with unsupported schema", (done) => {
+      chai
+        .request(app)
+        .post(config.apiDruidEndPoint)
+        .send(JSON.parse(TestDruidQuery.UNSUPPORTED_SCHEMA))
+        .end((err, res) => {
+          res.should.have.status(httpStatus.BAD_REQUEST);
+          res.body.should.be.a("object");
+          res.body.responseCode.should.be.eq("failed");
+          res.body.params.status.should.be.eq("failed");
+          res.body.result.should.be.empty;
+          res.body.id.should.be.eq("druid.execute.native.query");
+          done();
+        });
+    });
   });
   describe("POST /druid/v2/sql", () => {
     beforeEach(() => {
