@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: npm install
       - run: npm run build
-      - sonarcloud/scan
+      
   test:
     working_directory: ~/demo-circleci
     docker:
@@ -27,8 +27,7 @@ jobs:
 workflows:
   api_test:
     jobs:
-      - build:
-          context: SonarCloud
+      - build 
       - test: 
           context: SonarCloud
           requires:
