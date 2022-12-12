@@ -25,10 +25,10 @@ const validate =
       const isSqlQuery = configParams.isSqlQuery;
       let dataSource, result: IValidationResponse;
       if (isSqlQuery) {
-        queryPayload.querySql = queryPayload.querySql
+        queryPayload.querySql.query = queryPayload.querySql.query
           .replace(/\s+/g, " ")
           .trim();
-        dataSource = getDataSource(queryPayload.querySql);
+        dataSource = getDataSource(queryPayload.querySql.query);
         result = ValidationService.validateSqlQuery(
           queryPayload.querySql,
           limits.common,
@@ -55,7 +55,7 @@ const validate =
   };
 
 const getLimits = (datasource: string): any => {
-  for (let index = 0; index < limits.rules.length; index++) {
+  for (var index = 0; index < limits.rules.length; index++) {
     if (limits.rules[index].dataSource == datasource) {
       return limits.rules[index];
     }

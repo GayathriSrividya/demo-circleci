@@ -15,22 +15,22 @@ class TestDruidQuery {
     '{"context":{"dataSource":"telemetry-events"},"query":{"queryType":"search","dataSource":"telemetry-events","granularity":"all","resultFormat":"compactedList","columns":["__time"],"metrics":{"type":"numeric","metric":"count"},"aggregations":[{"type":"count","name":"count"}]}}';
   public static UNSUPPORTED_DATA_SOURCE =
     '{"context":{"dataSource":"invalid_data_source"},"query":{"queryType":"timeBoundary","dataSource":"invalid_data_source","granularity":"all","intervals":["2022-10-17/2022-10-19"],"resultFormat":"compactedList","columns":["__time","scans"],"metrics":{"type":"numeric","metric":"count"},"aggregations":[{"type":"count","name":"count"}]}}';
-  public static INVALID_QUERY_TYPE = 
+  public static INVALID_QUERY_TYPE =
     '{"context":{"dataSource":"telemetry-events"},"query":{"queryType":"invalidQueryType", "dataSource":"telemetry-events", "granularity":"all", "intervals":"2021-12-31/2022-01-20"}}';
-    public static UNSUPPORTED_SCHEMA = 
+  public static UNSUPPORTED_SCHEMA =
     '{"context":{},"query":{"queryType":"invalidQueryType", "dataSource":"telemetry-events", "granularity":"all", "intervals":"2021-12-31/2022-01-20"}}';
   public static VALID_SQL_QUERY =
-    '{"context":{"dataSource":"telemetry-events"},"querySql":"SELECT * FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2020-12-31\' AND __time < TIMESTAMP \'2021-01-21\' LIMIT 10"}';
+    '{"context":{"dataSource":"telemetry-events"},"querySql":{"query":"SELECT * FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2020-12-31\' AND __time < TIMESTAMP \'2021-01-21\' LIMIT 10"}}';
   public static HIGH_LIMIT_SQL_QUERY =
-    '{"context":{"dataSource":"telemetry-events"},"querySql":"SELECT mid FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2021-01-01\' AND __time < TIMESTAMP \'2021-01-22\' LIMIT 1000"}';
+    '{"context":{"dataSource":"telemetry-events"},"querySql":{"query":"SELECT mid FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2021-01-01\' AND __time < TIMESTAMP \'2021-01-22\' LIMIT 1000"}}';
   public static WITHOUT_LIMIT_SQL_QUERY =
-    '{"context":{"dataSource":"telemetry-events"},"querySql":"SELECT actor_type, content_status FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2021-01-01\' AND __time < TIMESTAMP \'2021-01-02\'"}';
+    '{"context":{"dataSource":"telemetry-events"},"querySql":{"query":"SELECT actor_type, content_status FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2021-01-01\' AND __time < TIMESTAMP \'2021-01-02\'"}}';
   public static HIGH_DATE_RANGE_SQL_QUERY =
-    '{"context":{"dataSource":"telemetry-events"},"querySql":"SELECT actor_type, content_status FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2021-01-01\' AND __time < TIMESTAMP \'2021-02-12\' LIMIT 10"}';
+    '{"context":{"dataSource":"telemetry-events"},"querySql":{"query":"SELECT actor_type, content_status FROM \\"telemetry-events\\" WHERE __time >= TIMESTAMP \'2021-01-01\' AND __time < TIMESTAMP \'2021-02-12\' LIMIT 10"}}';
   public static WITHOUT_DATE_RANGE_SQL_QUERY =
-    '{"context":{"dataSource":"telemetry-events"},"querySql":"SELECT content_status FROM \\"telemetry-events\\" LIMIT 5"}';
+    '{"context":{"dataSource":"telemetry-events"},"querySql":{"query":"SELECT content_status FROM \\"telemetry-events\\" LIMIT 5"}}';
   public static UNSUPPORTED_DATASOURCE_SQL_QUERY =
-    '{"context":{"dataSource":"telemetry-events"},"querySql":"SELECT __time FROM \\"invalid-datasource\\" LIMIT 10"}';
+    '{"context":{"dataSource":"telemetry-events"},"querySql":{"query":"SELECT __time FROM \\"invalid-datasource\\" LIMIT 10"}}';
 }
 
 export default TestDruidQuery;
